@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 21:26:47 by olarseni          #+#    #+#             */
-/*   Updated: 2024/12/27 22:21:02 by olarseni         ###   ########.fr       */
+/*   Updated: 2024/12/28 00:30:22 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,16 @@ bool	has_one_exit(char **map)
 		i++;
 	}
 	if (map[i][j] == 'E')
+		return (true);
+	return (false);
+}
+
+bool	is_valid_file_name(char *file_name)
+{
+	char	*ext;
+
+	ext = ft_strrchr(file_name, '.');
+	if (ext && !ft_strncmp(ext, ".ber", 5))
 		return (true);
 	return (false);
 }

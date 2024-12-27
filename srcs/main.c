@@ -6,11 +6,12 @@
 /*   By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:02:14 by olarseni          #+#    #+#             */
-/*   Updated: 2024/12/21 16:22:42 by olarseni         ###   ########.fr       */
+/*   Updated: 2024/12/28 00:24:18 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include  "so_long.h"
+#include "so_long.h"
+#include "map_checker.h"
 
 /*
  * Function: start_game
@@ -51,14 +52,18 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 	{
-		ft_printf("Error\n");
-		ft_printf("This program need 1 argument");
+		ft_printf("Error\nThis program need 1 argument");
 		return (1);
 	}
+	if (!is_valid_file_name(argv[1]))
+		return (ERROR);
 	map = read_map(argv[1]);
 	error = check_valid_map(map);
 	if (error)
+	{
+		free_map(map);
 		return (error);
+	}
 	start_game(map);
 	print_map(map);
 	free_map(map);

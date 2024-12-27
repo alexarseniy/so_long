@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 21:39:45 by olarseni          #+#    #+#             */
-/*   Updated: 2024/12/27 22:21:36 by olarseni         ###   ########.fr       */
+/*   Updated: 2024/12/28 00:22:45 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,5 +40,6 @@ void	flood_fill_recursive(char **map, t_point map_size, t_point start_point);
 void	flood_fill(char **map);
 bool	has_valid_path(char **map);
 bool	has_one_exit(char **map);
+bool	is_valid_file_name(char *file_name);
 
 #endif
