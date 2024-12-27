@@ -6,7 +6,7 @@
 #    By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/20 20:39:53 by olarseni          #+#    #+#              #
-#    Updated: 2024/12/12 21:56:43 by olarseni         ###   ########.fr        #
+#    Updated: 2024/12/27 22:12:14 by olarseni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,9 +20,12 @@ NAME	=	so_long
 
 # Sources with VPATH
 VPATH	=	srcs srcs/parse_map
-SRCS	=	main.c\
-			read_map.c\
-			map_checker.c
+SRCS	=	main.c				\
+			read_map.c			\
+			map_checker.c		\
+			map_checker_2.c		\
+			check_valid_path.c
+
 
 # Objects
 ODIR	=	objects

@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 21:43:06 by olarseni          #+#    #+#             */
-/*   Updated: 2024/12/21 17:18:35 by olarseni         ###   ########.fr       */
+/*   Updated: 2024/12/27 22:16:00 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ bool	is_valid_sqare_map(char **map)
 			return (false);
 		i++;
 	}
-	return (true)
+	return (true);
 }
 
 bool	has_valid_chars(char **map)
@@ -55,10 +55,10 @@ bool	has_valid_chars(char **map)
 
 bool	is_rounded_by_walls(char **map)
 {
-	int	i;
-	int	j;
+	size_t	i;
+	size_t	j;
 
-	i = 0
+	i = 0;
 	while (map[i])
 	{
 		j = 0;
@@ -102,35 +102,6 @@ bool	has_one_init_exit(char **map)
 	if (n_start_point != 1 || n_exit_point != 1)
 		return (false);
 	return (true);
-}
-
-bool	has_min_one_C(char **map)
-{
-	int	i;
-	int	j;
-	int	n_collectable;
-
-	i = 0;
-	n_collectable = 0;
-	while (map[i])
-	{
-		j = 0;
-		while (map[i][j])
-		{
-			if (map[i][j] == 'C')
-				n_collectable++;
-			j++;
-		}
-		i++;
-	}
-	if (n_collectable == 0)
-		return (false)
-	return (true);
-}
-
-bool	has_valid_path(char **map)
-{
-
 }
 
 t_error	check_valid_map(char **map)
