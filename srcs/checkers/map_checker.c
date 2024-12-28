@@ -6,12 +6,13 @@
 /*   By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 21:43:06 by olarseni          #+#    #+#             */
-/*   Updated: 2024/12/27 22:16:00 by olarseni         ###   ########.fr       */
+/*   Updated: 2024/12/28 02:46:42 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map_checker.h"
 #include "libft.h"
+#include "parse_map.h"
 #include <stdbool.h>
 
 bool	is_valid_sqare_map(char **map)
@@ -93,7 +94,7 @@ bool	has_one_init_exit(char **map)
 		{
 			if (map[i][j] == 'P')
 				n_start_point++;
-			if (map[i][j] == 'E')	
+			if (map[i][j] == 'E')
 				n_exit_point++;
 			j++;
 		}
@@ -106,19 +107,23 @@ bool	has_one_init_exit(char **map)
 
 t_error	check_valid_map(char **map)
 {
+	t_error	error;
+
 	if (!map || !*map)
-		return (ERROR);
-	if (!is_valid_sqare_map(map))
-		return (ERROR);
-	if (!has_valid_chars(map))
-		return (ERROR);
-	if (!is_rounded_by_walls(map))
-		return (ERROR);
-	if (!has_one_init_exit(map))
-		return (ERROR);
-	if (!has_min_one_C(map))
-		return (ERROR);
-	if (!has_valid_path(map))
-		return (ERROR);
-	return (OK);
+		error = ERROR_MAP;
+	else if (!is_valid_sqare_map(map))
+		error = ERROR_MAP_NOT_RECTANGLE;
+	else if (!has_valid_chars(map))
+		error = ERROR_MAP_HAS_INVALID_CHAR;
+	else if (!is_rounded_by_walls(map))
+		error = ERROR_NOT_ROUNDED_BY_WALLS;
+	else if (!has_one_init_exit(map))
+		error = ERROR_NUMBER_OF_INIT_EXIT_CHARS;
+	else if (!has_min_one_c(map))
+		error = ERROR_NOT_COLLECTABLES_FOUND;
+	else if (!has_valid_path(map))
+		error = ERROR_NOT_VALID_PATH;
+	else
+		error = OK;
+	return (print_error(error));
 }

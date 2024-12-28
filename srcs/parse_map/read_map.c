@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:46:50 by olarseni          #+#    #+#             */
-/*   Updated: 2024/12/28 00:26:40 by olarseni         ###   ########.fr       */
+/*   Updated: 2024/12/28 03:20:14 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ void	free_map(char **map)
 		free(map[i++]);
 	free(map);
 }
+
 static char	*read_map_file(int fd)
 {
 	char	*line;
@@ -61,6 +62,17 @@ static char	*read_map_file(int fd)
 	return (result);
 }
 
+char	*generate_file_path(char *file_name)
+{
+	char	*file_path;
+
+	if (!ft_strchr(file_name, '/'))
+		file_path = ft_strjoin(MAPS_PATH, file_name);
+	else
+		file_path = ft_strjoin("", file_name);
+	return (file_path);
+}
+
 char	**read_map(char *file_name)
 {
 	int		fd;
@@ -68,7 +80,7 @@ char	**read_map(char *file_name)
 	char	*map_line;
 	char	**map;
 
-	file_path = ft_strjoin(MAPS_PATH, file_name);
+	file_path = generate_file_path(file_name);
 	if (!file_path)
 		return (NULL);
 	fd = open(file_path, O_RDONLY);

@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 21:26:47 by olarseni          #+#    #+#             */
-/*   Updated: 2024/12/28 00:30:22 by olarseni         ###   ########.fr       */
+/*   Updated: 2024/12/28 03:06:36 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include "libft.h"
 #include <stdbool.h>
 
-bool	has_min_one_C(char **map)
+bool	has_min_one_c(char **map)
 {
 	int	i;
 	int	j;
@@ -45,14 +45,16 @@ bool	has_one_exit(char **map)
 
 	i = 0;
 	j = 0;
-	while (map[i] && map[i][j] && map[i][j] != 'E')
+	while (map[i])
 	{
 		j = 0;
 		while (map[i][j] && map[i][j] != 'E')
 			j++;
+		if (map[i][j] == 'E')
+			break ;
 		i++;
 	}
-	if (map[i][j] == 'E')
+	if (map[i])
 		return (true);
 	return (false);
 }

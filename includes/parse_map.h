@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:59:08 by olarseni          #+#    #+#             */
-/*   Updated: 2024/12/27 22:34:46 by olarseni         ###   ########.fr       */
+/*   Updated: 2024/12/28 03:18:15 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,6 @@
 char	**read_map(char *path_file);
 void	free_map(char **map);
 void	print_map(char	**map);
+char	*generate_file_path(char *file_name);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:02:14 by olarseni          #+#    #+#             */
-/*   Updated: 2024/12/28 00:24:18 by olarseni         ###   ########.fr       */
+/*   Updated: 2024/12/28 19:03:03 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,15 @@
  */
 static void	start_game(char **map)
 {
-	//TODO
+	void	*mlx;
+	//void	*window;
+
+	mlx = mlx_init();
+	//window = mlx_new_window(mlx, 300, 200, "Mi ventana ;)");
+	//mlx_loop(mlx);
 	map = NULL;
+	//mlx_destroy_window(mlx, window);
+	free(mlx);
 	return ;
 }
 
@@ -51,12 +58,9 @@ int	main(int argc, char **argv)
 	t_error	error;
 
 	if (argc != 2)
-	{
-		ft_printf("Error\nThis program need 1 argument");
-		return (1);
-	}
+		return (print_error(ERROR_INVALID_NUMBER_ARGUMENTS));
 	if (!is_valid_file_name(argv[1]))
-		return (ERROR);
+		return (print_error(ERROR_INVALID_FILE_NAME));
 	map = read_map(argv[1]);
 	error = check_valid_map(map);
 	if (error)
@@ -65,7 +69,6 @@ int	main(int argc, char **argv)
 		return (error);
 	}
 	start_game(map);
-	print_map(map);
 	free_map(map);
 	return (0);
 }

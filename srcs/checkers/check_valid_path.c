@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 21:24:37 by olarseni          #+#    #+#             */
-/*   Updated: 2024/12/27 22:17:01 by olarseni         ###   ########.fr       */
+/*   Updated: 2024/12/28 02:57:18 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,12 @@ char	**strs_copy(char **strs)
 	char	**result;
 	int		i;
 
-	result = NULL;
 	if (!strs)
 		return (NULL);
 	i = 0;
 	while (strs[i])
 		i++;
-	result = ft_calloc(i, sizeof(char *));
+	result = ft_calloc(i + 1, sizeof(char *));
 	if (!result)
 		return (NULL);
 	i = 0;
@@ -40,6 +39,7 @@ char	**strs_copy(char **strs)
 		}
 		i++;
 	}
+	result[i] = NULL;
 	return (result);
 }
 
@@ -76,6 +76,8 @@ void	flood_fill_recursive(char **map, t_point map_size, t_point start_point)
 		return ;
 	if (map[start_point.y][start_point.x] == '1')
 		return ;
+	if (map[start_point.y][start_point.x] == 'F')
+		return ;
 	map[start_point.y][start_point.x] = 'F';
 	start_point.y += 1;
 	flood_fill_recursive(map, map_size, start_point);
@@ -99,9 +101,9 @@ void	flood_fill(char **map)
 		return ;
 	map_size.x = 0;
 	map_size.y = 0;
-	while(map[map_size.y])
+	while (map[map_size.y])
 		map_size.y++;
-	while(map[0][map_size.x])
+	while (map[0][map_size.x])
 		map_size.x++;
 	flood_fill_recursive(map, map_size, start_point);
 }
@@ -115,7 +117,7 @@ bool	has_valid_path(char **map)
 	if (!map_copy)
 		return (false);
 	flood_fill(map_copy);
-	if (has_one_exit(map))
+	if (has_one_exit(map_copy) || has_min_one_c(map_copy))
 		is_valid = false;
 	else
 		is_valid = true;
