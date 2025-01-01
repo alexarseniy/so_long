@@ -6,14 +6,14 @@
 /*   By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/27 21:24:37 by olarseni          #+#    #+#             */
-/*   Updated: 2024/12/28 02:57:18 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/01 20:01:19 by oarseniy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map_checker.h"
 #include "libft.h"
 #include <stdbool.h>
-#include "parse_map.h"
+#include "read_map.h"
 
 char	**strs_copy(char **strs)
 {

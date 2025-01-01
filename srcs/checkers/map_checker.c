@@ -6,13 +6,13 @@
 /*   By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 21:43:06 by olarseni          #+#    #+#             */
-/*   Updated: 2024/12/28 02:46:42 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/01 20:00:57 by oarseniy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "map_checker.h"
 #include "libft.h"
-#include "parse_map.h"
+#include "read_map.h"
 #include <stdbool.h>
 
 bool	is_valid_sqare_map(char **map)

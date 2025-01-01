@@ -6,7 +6,7 @@
 #    By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/20 20:39:53 by olarseni          #+#    #+#              #
-#    Updated: 2024/12/28 01:03:45 by olarseni         ###   ########.fr        #
+#    Updated: 2025/01/01 19:49:17 by oarseniy         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,13 +19,14 @@ NAME	=	so_long
 
 
 # Sources with VPATH
-VPATH	=	srcs srcs/parse_map srcs/checkers
+VPATH	=	srcs srcs/checkers
 SRCS	=	main.c				\
 			read_map.c			\
 			map_checker.c		\
 			map_checker_2.c		\
 			check_valid_path.c	\
-			print_error.c
+			print_error.c		\
+			game_interface.c
 
 
 # Objects

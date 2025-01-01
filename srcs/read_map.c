@@ -6,11 +6,11 @@
 /*   By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 16:46:50 by olarseni          #+#    #+#             */
-/*   Updated: 2024/12/28 03:20:14 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/01 19:48:24 by oarseniy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "parse_map.h"
+#include "read_map.h"
 
 void	print_map(char **map)
 {

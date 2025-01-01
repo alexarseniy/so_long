@@ -6,12 +6,11 @@
 /*   By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 17:02:14 by olarseni          #+#    #+#             */
-/*   Updated: 2024/12/28 19:03:03 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/01 20:17:27 by oarseniy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-#include "map_checker.h"
 
 /*
  * Function: start_game
@@ -24,17 +23,12 @@
  *
  * @return No return
  */
-static void	start_game(char **map)
+static void	start_game(t_game_interface *game_interface)
 {
-	void	*mlx;
-	//void	*window;
-
-	mlx = mlx_init();
-	//window = mlx_new_window(mlx, 300, 200, "Mi ventana ;)");
-	//mlx_loop(mlx);
-	map = NULL;
-	//mlx_destroy_window(mlx, window);
-	free(mlx);
+	//mlx_loop(game_interface->mlx);
+	if (game_interface)
+		return ;
+	//TODO
 	return ;
 }
 
@@ -54,21 +48,14 @@ static void	start_game(char **map)
  */
 int	main(int argc, char **argv)
 {
-	char	**map;
-	t_error	error;
+	t_game_interface	game_interface;
 
 	if (argc != 2)
 		return (print_error(ERROR_INVALID_NUMBER_ARGUMENTS));
 	if (!is_valid_file_name(argv[1]))
 		return (print_error(ERROR_INVALID_FILE_NAME));
-	map = read_map(argv[1]);
-	error = check_valid_map(map);
-	if (error)
-	{
-		free_map(map);
-		return (error);
-	}
-	start_game(map);
-	free_map(map);
+	game_interface = init_game_interface(argv[1]);
+	start_game(&game_interface);
+	destroy_game_interface(game_interface);
 	return (0);
 }

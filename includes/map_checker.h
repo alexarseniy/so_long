@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 21:39:45 by olarseni          #+#    #+#             */
-/*   Updated: 2024/12/28 02:46:25 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/01 19:56:27 by oarseniy         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,10 @@ typedef enum e_error
 	ERROR_NOT_VALID_PATH,
 	ERROR_INVALID_NUMBER_ARGUMENTS,
 	ERROR_INVALID_FILE_NAME,
-	ERROR_MAP
+	ERROR_MAP,
+	ERROR_INIT_MAP,
+	ERROR_INIT_MLX,
+	ERROR_INIT_MLX_WINDOW
 }	t_error;
 
 typedef struct s_point
