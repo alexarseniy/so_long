@@ -3,25 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   read_map.h                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+        */
+/*   By: olarseni <olarseni@student.madrid42.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 16:59:08 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/01 19:48:10 by oarseniy         ###   ########.fr       */
+/*   Created: 2025/01/09 19:45:33 by olarseni          #+#    #+#             */
+/*   Updated: 2025/01/10 18:28:27 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef READ_MAP_H
 # define READ_MAP_H
 
-# include <stdlib.h>
-# include "libft.h"
 # include <fcntl.h>
+# include "libft.h"
+# include <stdlib.h>
 
-#define MAPS_PATH "./resources/maps/"
+# define MAP_PATH "maps/"
 
-char	**read_map(char *path_file);
-void	free_map(char **map);
-void	print_map(char	**map);
-char	*generate_file_path(char *file_name);
+char	**read_map(char *file_name);
+void	print_map(char **map);
 
 #endif
