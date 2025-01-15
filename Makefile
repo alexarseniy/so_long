@@ -6,7 +6,7 @@
 #    By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/20 20:39:53 by olarseni          #+#    #+#              #
-#    Updated: 2025/01/12 23:06:44 by olarseni         ###   ########.fr        #
+#    Updated: 2025/01/15 17:21:41 by olarseni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -22,12 +22,18 @@ NAME	=	so_long
 VPATH	=	srcs srcs/game_interface srcs/free_utils
 SRCS	=	main.c					\
 			read_map.c				\
-			free_map.c				\
 			init_game_interface.c	\
 			init_map.c				\
 			init_pj.c				\
 			init_npcs.c				\
-			game_interface_utils.c
+			game_interface_utils.c	\
+			init_collectable.c		\
+			init_sprites.c			\
+			destroy_game_interface.c\
+			destroy_sprites.c		\
+			destroy_map.c			\
+			destroy_collectable.c	\
+			destroy_npcs.c
 
 
 # Objects

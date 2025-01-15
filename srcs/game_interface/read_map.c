@@ -6,12 +6,12 @@
 /*   By: olarseni <olarseni@student.madrid42.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 19:43:20 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/10 18:18:07 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/15 18:49:11 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "read_map.h"
-#include "free_utils.h"
+#include "game_interface.h"
 
 /*
  * Function: print_map
@@ -71,7 +71,7 @@ static char	*generate_file_path(char *file_name)
  *  @return map return the splitted map, previously, freeing the memmory used by
  *  full_map var..
  */
-static char **generate_map_matrix(int fd)
+static char	**generate_map_matrix(int fd)
 {
 	char	*map_line;
 	char	*full_map;
@@ -85,11 +85,11 @@ static char **generate_map_matrix(int fd)
 	while (1)
 	{
 		map_line = get_next_line(fd);
-		if(!map_line)
+		if (!map_line)
 			break ;
 		temp = ft_append(full_map, map_line, ft_strlen(map_line));
 		if (!temp)
-			return (NULL);
+			return (free(map_line), NULL);
 		full_map = temp;
 		free(map_line);
 	}
@@ -122,11 +122,13 @@ char	**read_map(char *file_name)
 		return (NULL);
 	file_path = generate_file_path(file_name);
 	if (!file_path)
-		return (NULL);
+		exit_error(ERROR_GENERATING_FILE_PATH);
 	fd = open(file_path, O_RDONLY);
 	if (fd == -1)
 		return (free(file_path), NULL);
 	map = generate_map_matrix(fd);
 	close(fd);
+	if (!map)
+		return (free(file_path), NULL);
 	return (free(file_path), map);
 }

@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.madrid42.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 21:47:03 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/10 21:47:57 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/15 16:34:03 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	destroy_pj(t_char *pj)
 {
-	//TODO
+	pj->pos_x = 0;
+	pj->pos_y = 0;
 }
