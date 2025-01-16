@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.madrid42.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 19:43:20 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/15 18:49:11 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/16 13:30:23 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ char	**read_map(char *file_name)
 		return (NULL);
 	file_path = generate_file_path(file_name);
 	if (!file_path)
-		exit_error(ERROR_GENERATING_FILE_PATH);
+		return (NULL);
 	fd = open(file_path, O_RDONLY);
 	if (fd == -1)
 		return (free(file_path), NULL);

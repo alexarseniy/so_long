@@ -6,7 +6,7 @@
 #    By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/20 20:39:53 by olarseni          #+#    #+#              #
-#    Updated: 2025/01/15 17:21:41 by olarseni         ###   ########.fr        #
+#    Updated: 2025/01/16 15:22:16 by olarseni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ NAME	=	so_long
 
 
 # Sources with VPATH
-VPATH	=	srcs srcs/game_interface srcs/free_utils
+VPATH	=	srcs srcs/game_interface srcs/free_utils srcs/error_checker
 SRCS	=	main.c					\
 			read_map.c				\
 			init_game_interface.c	\
@@ -33,8 +33,12 @@ SRCS	=	main.c					\
 			destroy_sprites.c		\
 			destroy_map.c			\
 			destroy_collectable.c	\
-			destroy_npcs.c
-
+			destroy_npcs.c			\
+			exit_error.c			\
+			has_map_checks.c		\
+			has_valid_path.c		\
+			is_map_checks.c			\
+			is_valid_map.c
 
 # Objects
 ODIR	=	objects

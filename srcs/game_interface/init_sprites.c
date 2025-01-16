@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 15:07:06 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/15 18:44:50 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/16 13:22:24 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ static void	**load_char_sprites(t_game *game, char *path)
 
 	sprites = ft_calloc(N_CHAR_SPRITES + 1, sizeof(void *));
 	if (!sprites)
-		exit(1);
+		return (NULL);
 	i = 0;
 	while (i < N_CHAR_SPRITES + 1)
 	{
@@ -74,7 +74,7 @@ static void	check_sprites_loaded(t_game *game)
 	if (!sprites.wall || !sprites.floor || !sprites.exit_closed ||
 		!sprites.exit_opened || !sprites.collect || !sprites.pj ||
 		!sprites.npc)
-		exit_error(ERROR_LOADING_SPRITES);
+		exit_error(ERROR_LOADING_SPRITES, game);
 }
 
 void	init_sprites(t_game *game)

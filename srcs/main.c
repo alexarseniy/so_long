@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.madrid42.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 22:58:57 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/15 18:07:54 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/16 13:29:52 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ int	main(int argc, char **argv)
 	t_game	game;
 
 	if (argc != 2)
-		return (exit_error(ERROR_N_ARGS));
+		exit_error(ERROR_N_ARGS, NULL);
 	init_game_interface(&game, argv[1]);
 	render(&game);
 	print_map(game.map.map);

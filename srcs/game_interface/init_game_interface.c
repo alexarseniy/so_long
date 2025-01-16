@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.madrid42.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 18:33:04 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/15 18:47:29 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/16 13:20:34 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,14 +39,14 @@ static void	init_game_structs(t_game *game, char *map_file)
 void	init_game_interface(t_game *game, char *map_file)
 {
 	if (!game || !map_file)
-		exit_error(ERROR_INIT_GAME_INTERFACE);
+		exit_error(ERROR_INIT_GAME_INTERFACE, game);
 	game_interface_init_values(game);
 	game->mlx = mlx_init();
 	if (!game->mlx)
-		exit_error(ERROR_INIT_MLX);
+		exit_error(ERROR_INIT_MLX, game);
 	init_game_structs(game, map_file);
 	game->window = mlx_new_window(game->mlx, game->map.width * IMG_WIDTH,
 			game->map.height * IMG_HEIGHT, "so_long");
 	if (!game->window)
-		exit_error(ERROR_INIT_MLX_WINDOW);
+		exit_error(ERROR_INIT_MLX_WINDOW, game);
 }

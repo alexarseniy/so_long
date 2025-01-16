@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 16:59:35 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/15 17:38:10 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/16 13:18:18 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,6 @@
 
 static void	clean_sprites_mem(t_game *game)
 {
-	if (!game)
-		exit(1);
 	game->sprites.wall = NULL;
 	game->sprites.floor = NULL;
 	game->sprites.exit_closed = NULL;

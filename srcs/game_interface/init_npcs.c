@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.madrid42.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 21:39:27 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/15 18:50:06 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/16 13:21:29 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	init_npcs(t_game *game)
 	n_npcs = count_npcs(game->map.map);
 	npcs = ft_calloc(n_npcs + 1, sizeof(t_char *));
 	if (!npcs)
-		exit_error(ERROR_MALLOC_NPCS);
+		exit_error(ERROR_MALLOC_NPCS, game);
 	i = 0;
 	while (i < n_npcs + 1)
 	{
