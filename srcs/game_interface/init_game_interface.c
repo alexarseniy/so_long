@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.madrid42.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 18:33:04 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/16 13:20:34 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/19 23:14:10 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ static void	init_game_structs(t_game *game, char *map_file)
 	//init_counter(&(game->counter));
 	init_collectable(game);
 	init_sprites(game);
+	init_exit(game);
 }
 
 void	init_game_interface(t_game *game, char *map_file)

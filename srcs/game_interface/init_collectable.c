@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.madrid42.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 21:42:03 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/16 13:19:33 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/20 01:53:51 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,14 +65,16 @@ void	init_collectable(t_game *game)
 	int				i;
 
 	n_collects = count_collects(game->map.map);
-	collects = ft_calloc(n_collects + 1, sizeof(t_collectable *));
+	collects = ft_calloc(n_collects, sizeof(t_collectable *));
 	if (!collects)
 		exit_error(ERROR_MALLOC_COLLECTS, game);
 	i = 0;
-	while (i < n_collects + 1)
+	while (i < n_collects)
 	{
 		collect_init_position(game->map.map, &(collects[i]));
+		collects[i].is_collected = false;
 		i++;
 	}
 	game->collectables = collects;
+	game->n_collects = n_collects;
 }

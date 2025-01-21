@@ -6,7 +6,7 @@
 #    By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/20 20:39:53 by olarseni          #+#    #+#              #
-#    Updated: 2025/01/16 15:22:16 by olarseni         ###   ########.fr        #
+#    Updated: 2025/01/19 23:16:26 by olarseni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ SRCS	=	main.c					\
 			game_interface_utils.c	\
 			init_collectable.c		\
 			init_sprites.c			\
+			init_exit.c				\
 			destroy_game_interface.c\
 			destroy_sprites.c		\
 			destroy_map.c			\

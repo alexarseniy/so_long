@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.madrid42.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 21:36:44 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/16 15:19:39 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/19 23:18:12 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	map_init_values(t_map *map)
 	map->width = 0;
 	map->height = 0;
 	map->map = NULL;
-	map->is_exit_closed = true;
 }
 
 static void	set_map_size(t_map *map)

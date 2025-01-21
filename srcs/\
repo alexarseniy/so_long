@@ -1,0 +1,54 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   movement.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/01/21 16:29:36 by olarseni          #+#    #+#             */
+/*   Updated: 2025/01/21 16:46:59 by olarseni         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "so_long.h"
+
+void	npcs_update_pos
+void	npcs_move(t_game *game)
+{
+	int	i;
+	int	move;
+	int	x;
+	int	y;
+
+	i = -1;
+	while (++i < game->n_npcs)
+	{
+		x = 0;
+		y = 0;
+		move = rand() % 5;
+		if (move == 0)
+			continue ;
+		if (move == 1)
+			y = -1;
+		if (move == 2)
+			y = +1;
+		if (move == 3)
+			x = -1;
+		if (move == 4)
+			x = +1;
+		npcs_update_pos(x, y, &(game->npcs[i]), game);
+	}
+	return (0);
+}
+
+void	pj_move(t_game *game, int x, int y)
+{
+	bool	wall_colision;
+
+	wall_collision = check_wall_collision(game->pj, game->map.map);
+	if (wall_collision)
+		return ;
+	game->map.map[pos_y][pos_x] = '0';
+	game->pj.pos_x += x;
+	game->pj.pos_y += y;
+}

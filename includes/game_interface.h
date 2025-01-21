@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.madrid42.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 19:16:48 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/15 17:21:08 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/20 00:26:31 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,26 +39,33 @@ typedef struct s_map
 	int		width;
 	int		height;
 	char	**map;
-	bool	is_exit_closed;
 }	t_map;
 
 typedef struct s_char
 {
-	int		pos_x;
-	int		pos_y;
-} t_char;
+	int	pos_x;
+	int	pos_y;
+}	t_char;
 
 typedef struct s_count
 {
 	int	count_steps;
 	int	count_collectables;
-} t_count;
+}	t_count;
 
 typedef struct s_collectable
 {
 	int		pos_x;
 	int		pos_y;
-} t_collectable;
+	bool	is_collected;
+}	t_collectable;
+
+typedef struct s_exit
+{
+	int		pos_x;
+	int		pos_y;
+	bool	is_exit_closed;
+}	t_exit;
 
 typedef struct s_sprites
 {
@@ -71,17 +78,20 @@ typedef struct s_sprites
 	void	*collect;
 	void	**pj;
 	void	**npc;
-} t_sprites;
+}	t_sprites;
 
 typedef struct s_game
 {
 	void					*mlx;
 	void					*window;
+	int						n_collects;
+	int						n_npcs;
 	struct s_map			map;
 	struct s_char			pj;
 	struct s_char			*npcs;
 	struct s_count			counter;
 	struct s_collectable	*collectables;
+	struct s_exit			exit;
 	struct s_sprites		sprites;
 }	t_game;
 
@@ -89,8 +99,9 @@ void	init_game_interface(t_game *game, char *map_file);
 void	init_map(t_game *game, char *map_file);
 void	init_pj(t_game *game);
 void	init_npcs(t_game *game);
-void	init_counter(t_count *counter);
+void	init_counter(t_game *game);
 void	init_collectable(t_game *game);
+void	init_exit(t_game *game);
 void	destroy_map(t_game *game);
 void	destroy_collectables(t_game *game);
 void	destroy_npcs(t_game *game);
@@ -102,6 +113,5 @@ void	counter_init_values(t_count *counter);
 void	init_sprites(t_game *game);
 void	sprites_init_values(t_sprites *sprites);
 void	*free_map(char ***map);
-
 
 #endif
