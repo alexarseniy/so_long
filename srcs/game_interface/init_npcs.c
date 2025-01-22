@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.madrid42.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 21:39:27 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/20 01:32:43 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/22 02:01:23 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ static void	npcs_init_start_point(char **map, t_char *npc)
 			break ;
 		y++;
 	}
-	npc->pos_x = x;
-	npc->pos_y = y;
+	npc->x = x;
+	npc->y = y;
 }
 
 void	init_npcs(t_game *game)
@@ -65,13 +65,14 @@ void	init_npcs(t_game *game)
 	int		i;
 
 	n_npcs = count_npcs(game->map.map);
-	npcs = ft_calloc(n_npcs, sizeof(t_char *));
+	npcs = ft_calloc(n_npcs, sizeof(t_char));
 	if (!npcs)
 		exit_error(ERROR_MALLOC_NPCS, game);
 	i = 0;
 	while (i < n_npcs)
 	{
 		npcs_init_start_point(game->map.map, &(npcs[i]));
+		npcs[i].direction = 0;
 		i++;
 	}
 	game->npcs = npcs;

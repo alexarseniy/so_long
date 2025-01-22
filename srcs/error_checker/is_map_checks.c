@@ -6,15 +6,16 @@
 /*   By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 13:55:09 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/16 15:26:32 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/21 20:24:03 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "error_checker.h"
 
-bool is_valid_map_file(char *map_file)
+bool	is_valid_map_file(char *map_file)
 {
 	char	*extension;
+
 	if (!map_file)
 		return (false);
 	extension = ft_strrchr(map_file, '.');

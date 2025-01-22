@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.madrid42.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 21:36:44 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/19 23:18:12 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/22 01:56:00 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,16 @@ static void	set_map_size(t_map *map)
 
 void	init_map(t_game *game, char *map_file)
 {
-	int	sprite_size;
 	t_error	error;
 
 	if (!is_valid_map_file(map_file))
 		exit_error(ERROR_INVALID_MAP_FILE_NAME, game);
-	sprite_size = 32;
 	game->map.map = read_map(map_file);
 	if (!game->map.map)
 		exit_error(ERROR_READ_MAP, game);
 	set_map_size(&(game->map));
+	if (game->map.width * game->map.height > MAX_MAP_SIZE)
+		exit_error(ERROR_MAP_SIZE, game);
 	error = is_valid_map(game->map.map);
 	if (error != OK)
 		exit_error(error, game);

@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/15 15:07:06 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/16 13:22:24 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/21 21:26:05 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	sprites_init_values(t_sprites *sprites)
 	sprites->npc = NULL;
 }
 
-static char *generate_pj_path(char *path, int tile_n)
+static char	*generate_pj_path(char *path, int tile_n)
 {
 	char	*sprite_num;
 	char	*path_with_n;
@@ -68,12 +68,12 @@ static void	**load_char_sprites(t_game *game, char *path)
 
 static void	check_sprites_loaded(t_game *game)
 {
-	t_sprites sprites;
+	t_sprites	sprites;
 
 	sprites = game->sprites;
-	if (!sprites.wall || !sprites.floor || !sprites.exit_closed ||
-		!sprites.exit_opened || !sprites.collect || !sprites.pj ||
-		!sprites.npc)
+	if (!sprites.wall || !sprites.floor || !sprites.exit_closed
+		|| !sprites.exit_opened || !sprites.collect || !sprites.pj
+		|| !sprites.npc)
 		exit_error(ERROR_LOADING_SPRITES, game);
 }
 

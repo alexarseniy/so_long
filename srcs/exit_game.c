@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   destroy_pj.c                                       :+:      :+:    :+:   */
+/*   exit_game.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: olarseni <olarseni@student.madrid42.com>   +#+  +:+       +#+        */
+/*   By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/01/10 21:47:03 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/15 16:34:03 by olarseni         ###   ########.fr       */
+/*   Created: 2025/01/16 12:42:05 by olarseni          #+#    #+#             */
+/*   Updated: 2025/01/21 23:28:59 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "game_interface.h"
 
-void	destroy_pj(t_char *pj)
+void	exit_game(int win, t_game *game)
 {
-	pj->pos_x = 0;
-	pj->pos_y = 0;
+	const char	*msg[] = {"You win!", "You Lose!", "Game has finished!"};
+
+	ft_printf("%s\n", msg[win]);
+	if (game)
+		destroy_game_interface(game);
+	exit(0);
 }

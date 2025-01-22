@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/16 14:47:38 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/16 17:04:16 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/21 20:23:36 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static char	**duplicate_map(char **map)
 
 static void	flood_fill(char **map, int x, int y)
 {
-	if (x < 0 || y < 0 || !map[y] || !map[y][x] || map[y][x] == '1' 
+	if (x < 0 || y < 0 || !map[y] || !map[y][x] || map[y][x] == '1'
 		|| map[y][x] == 'F')
 		return ;
 	map[y][x] = 'F';
@@ -75,7 +75,7 @@ static bool	has_start_or_exit(char **map)
 	return (false);
 }
 
-bool has_valid_path(char **map)
+bool	has_valid_path(char **map)
 {
 	char	**map_copy;
 	bool	valid_path;

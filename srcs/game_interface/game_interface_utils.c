@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.madrid42.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/12 22:09:16 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/15 17:17:31 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/21 18:55:23 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	char_init_values(t_char *charac)
 {
-	charac->pos_x = 0;
-	charac->pos_y = 0;
+	charac->x = 0;
+	charac->y = 0;
 }
 
 void	*free_map(char ***map)

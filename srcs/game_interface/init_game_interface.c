@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.madrid42.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 18:33:04 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/19 23:14:10 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/21 18:52:09 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ static void	game_interface_init_values(t_game *game)
 	map_init_values(&(game->map));
 	char_init_values(&(game->pj));
 	sprites_init_values(&(game->sprites));
-	//counter_init_values(&(game->counter));
 }
 
 static void	init_game_structs(t_game *game, char *map_file)
@@ -31,7 +30,7 @@ static void	init_game_structs(t_game *game, char *map_file)
 	init_map(game, map_file);
 	init_pj(game);
 	init_npcs(game);
-	//init_counter(&(game->counter));
+	init_counter(game);
 	init_collectable(game);
 	init_sprites(game);
 	init_exit(game);

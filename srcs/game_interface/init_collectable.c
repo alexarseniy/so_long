@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.madrid42.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 21:42:03 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/20 01:53:51 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/21 20:06:15 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,8 +54,8 @@ static void	collect_init_position(char **map, t_collectable *collect)
 			break ;
 		y++;
 	}
-	collect->pos_x = x;
-	collect->pos_y = y;
+	collect->x = x;
+	collect->y = y;
 }
 
 void	init_collectable(t_game *game)
@@ -65,7 +65,7 @@ void	init_collectable(t_game *game)
 	int				i;
 
 	n_collects = count_collects(game->map.map);
-	collects = ft_calloc(n_collects, sizeof(t_collectable *));
+	collects = ft_calloc(n_collects, sizeof(t_collectable));
 	if (!collects)
 		exit_error(ERROR_MALLOC_COLLECTS, game);
 	i = 0;

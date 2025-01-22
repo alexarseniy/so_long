@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.madrid42.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 21:38:12 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/19 21:58:29 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/21 21:24:36 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,12 @@ static void	pj_init_start_point(t_game *game)
 			break ;
 		i++;
 	}
-	game->pj.pos_x = j;
-	game->pj.pos_y = i;
+	game->pj.x = j;
+	game->pj.y = i;
 }
 
 void	init_pj(t_game *game)
 {
 	pj_init_start_point(game);
+	game->pj.direction = 0;
 }
