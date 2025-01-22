@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.madrid42.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 22:58:57 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/22 22:37:42 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/23 00:00:10 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,8 @@ static int	key_press(int key, t_game *game)
 		pj_move(game, 1, 0, RIGHT);
 	else
 		return (0);
-	npcs_move(game);
+	if (BONUS)
+		npcs_move(game);
 	render(game);
 	check_pj_npc_collision(game);
 	return (0);
@@ -53,7 +54,8 @@ int	main(int argc, char **argv)
 
 	if (argc != 2)
 		exit_error(ERROR_N_ARGS, NULL);
-	srand(time(NULL));
+	if (BONUS)
+		srand(time(NULL));
 	init_game_interface(&game, argv[1]);
 	start_game(&game);
 	return (0);

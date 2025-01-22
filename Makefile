@@ -6,7 +6,7 @@
 #    By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/20 20:39:53 by olarseni          #+#    #+#              #
-#    Updated: 2025/01/22 22:03:53 by olarseni         ###   ########.fr        #
+#    Updated: 2025/01/22 23:57:04 by olarseni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -69,6 +69,10 @@ CFLAGS	=	-Wall -Wextra -Werror -g
 IFLAGS	=	-I$(IDIR) -I$(LDIR) -I$(MINIDIR) -I$(LDIR)/$(PRINTF)
 LFLAGS	=	-L$(LDIR) -lft -L$(MINIDIR) -lmlx -lXext -lX11 -lbsd 
 
+# Bonus flag
+bonus: CFLAGS += -DVALID_CHARS='"01CPEN"'
+bonus: CFLAGS += -DBONUS=1
+
 ################################################################################
 #                                  COLORS                                      #
 ################################################################################
@@ -107,7 +111,6 @@ $(NAME): $(OBJS)
 	@echo "$(LGREEN)$(BOLD)COMPILATION FINISHED $(RESET)🎉"
 	@make --silent footer
 
-bonus: CFLAGS += -DVALID_CHARS='"01CPEN"'
 bonus: $(NAME)
 
 $(BNAME): $(OBJS)

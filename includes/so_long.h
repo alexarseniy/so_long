@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.madrid42.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 18:33:38 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/22 01:01:51 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/22 23:58:16 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,10 @@
 
 # include "game_interface.h"
 # include "error_checker.h"
+
+# ifndef BONUS
+#  define BONUS 0
+# endif
 
 typedef enum e_move
 {

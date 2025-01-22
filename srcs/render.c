@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:17:38 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/22 22:38:57 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/23 00:00:45 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ static void	*sprite_to_render(char c, t_game *game)
 		img = (game->sprites.floor);
 	else if (c == 'P')
 		img = (game->sprites.pj[sprite_select + game->pj.direction * 3]);
-	else if (c == 'N')
+	else if (BONUS && c == 'N')
 		img = (game->sprites.npc[rand() % 12]);
 	else if (c == 'E' && game->exit.is_exit_closed)
 		img = (game->sprites.exit_closed);
