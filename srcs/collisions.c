@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 17:49:06 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/21 23:51:11 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/22 22:33:24 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,28 +26,34 @@ bool	check_npc_collision(t_char charac, char **map, int x, int y)
 	return (false);
 }
 
+static bool	check_collision(t_char pj, t_char npc)
+{
+	bool	collision;
+
+	collision = false;
+	if (pj.y == npc.y && npc.x == pj.x + 1)
+		collision = (pj.direction == LEFT && npc.direction == RIGHT);
+	if (pj.y == npc.y && npc.x == pj.x - 1)
+		collision = (pj.direction == RIGHT && npc.direction == LEFT);
+	if (pj.x == npc.x && npc.y == pj.y + 1)
+		collision = (pj.direction == UP && npc.direction == DOWN);
+	if (pj.x == npc.x && npc.y == pj.y - 1)
+		collision = (pj.direction == DOWN && npc.direction == UP);
+	return (collision);
+}
+
 void	check_pj_npc_collision(t_game *game)
 {
 	int		i;
 	t_char	pj;
 	t_char	*npcs;
-	bool	collision;
 
 	i = 0;
 	pj = game->pj;
 	npcs = game->npcs;
-	collision = false;
 	while (i < game->n_npcs && (npcs[i].x != pj.x || npcs[i].y != pj.y))
 	{
-		if (pj.y == npcs[i].y && (npcs[i].x == pj.x + 1
-				|| npcs[i].x == pj.x - 1))
-			collision = ((pj.direction == LEFT && npcs[i].direction == RIGHT)
-					|| (pj.direction == RIGHT && npcs[i].direction == LEFT));
-		if (pj.x == npcs[i].x && (npcs[i].y == pj.y + 1
-				|| npcs[i].y == pj.y - 1))
-			collision = ((pj.direction == UP && npcs[i].direction == DOWN)
-					|| (pj.direction == DOWN && npcs[i].direction == UP));
-		if (collision)
+		if (check_collision(pj, npcs[i]))
 			exit_game(LOOSE, game);
 		i++;
 	}

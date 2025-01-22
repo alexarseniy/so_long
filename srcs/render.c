@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/21 18:17:38 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/22 00:34:11 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/22 22:38:57 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,7 @@ void	render(t_game *game)
 	int		j;
 	void	*image;
 
+	mlx_clear_window(game->mlx, game->window);
 	if (!game || !game->map.map)
 		exit_error(ERROR, game);
 	update_map(game);

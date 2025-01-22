@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.madrid42.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 22:58:57 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/22 01:42:06 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/22 22:37:42 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ static int	key_press(int key, t_game *game)
 	else
 		return (0);
 	npcs_move(game);
-	check_pj_npc_collision(game);
 	render(game);
+	check_pj_npc_collision(game);
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 #    By: olarseni <olarseni@student.42madrid.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/20 20:39:53 by olarseni          #+#    #+#              #
-#    Updated: 2025/01/19 23:16:26 by olarseni         ###   ########.fr        #
+#    Updated: 2025/01/22 22:03:53 by olarseni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,9 +17,9 @@
 # Program name
 NAME	=	so_long
 
-
 # Sources with VPATH
-VPATH	=	srcs srcs/game_interface srcs/free_utils srcs/error_checker
+VPATH	=	srcs srcs/game_interface srcs/error_checker
+
 SRCS	=	main.c					\
 			read_map.c				\
 			init_game_interface.c	\
@@ -30,6 +30,7 @@ SRCS	=	main.c					\
 			init_collectable.c		\
 			init_sprites.c			\
 			init_exit.c				\
+			init_counter.c			\
 			destroy_game_interface.c\
 			destroy_sprites.c		\
 			destroy_map.c			\
@@ -39,7 +40,12 @@ SRCS	=	main.c					\
 			has_map_checks.c		\
 			has_valid_path.c		\
 			is_map_checks.c			\
-			is_valid_map.c
+			is_valid_map.c			\
+			collisions.c			\
+			movement.c				\
+			render.c				\
+			exit_game.c				\
+			print_counter.c
 
 # Objects
 ODIR	=	objects
@@ -98,6 +104,16 @@ $(NAME): $(OBJS)
 	@make --silent header
 	@make --silent compile
 	@$(CC) $(CFLAGS) $(IFLAGS) -o $@ $^ $(LFLAGS)
+	@echo "$(LGREEN)$(BOLD)COMPILATION FINISHED $(RESET)🎉"
+	@make --silent footer
+
+bonus: CFLAGS += -DVALID_CHARS='"01CPEN"'
+bonus: $(NAME)
+
+$(BNAME): $(OBJS)
+	@make --silent header
+	@make --silent compile
+	@$(CC) -DVALID_CHARS='"01CPEN"' $(CFLAGS) $(IFLAGS) -o $@ $^ $(LFLAGS)
 	@echo "$(LGREEN)$(BOLD)COMPILATION FINISHED $(RESET)🎉"
 	@make --silent footer
 

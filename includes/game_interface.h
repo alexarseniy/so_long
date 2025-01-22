@@ -6,7 +6,7 @@
 /*   By: olarseni <olarseni@student.madrid42.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/10 19:16:48 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/20 00:26:31 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/21 23:29:21 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,9 @@
 # define N_CHAR_SPRITES		11
 # define MAX_NPCS			100
 # define N_COLLECT_SPRITES	3
+# define WIN				0
+# define LOOSE				1
+# define EXIT_KEY			2
 
 typedef struct s_map
 {
@@ -43,8 +46,9 @@ typedef struct s_map
 
 typedef struct s_char
 {
-	int	pos_x;
-	int	pos_y;
+	int	x;
+	int	y;
+	int	direction;
 }	t_char;
 
 typedef struct s_count
@@ -55,15 +59,15 @@ typedef struct s_count
 
 typedef struct s_collectable
 {
-	int		pos_x;
-	int		pos_y;
+	int		x;
+	int		y;
 	bool	is_collected;
 }	t_collectable;
 
 typedef struct s_exit
 {
-	int		pos_x;
-	int		pos_y;
+	int		x;
+	int		y;
 	bool	is_exit_closed;
 }	t_exit;
 

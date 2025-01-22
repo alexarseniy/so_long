@@ -6,20 +6,23 @@
 /*   By: olarseni <olarseni@student.madrid42.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/09 19:41:00 by olarseni          #+#    #+#             */
-/*   Updated: 2025/01/16 16:20:24 by olarseni         ###   ########.fr       */
+/*   Updated: 2025/01/22 21:53:54 by olarseni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef	ERROR_CHECKER_H
+#ifndef ERROR_CHECKER_H
 # define ERROR_CHECKER_H
 
 # include "libft.h"
 # include "game_interface.h"
 # include <stdbool.h>
 
-# define VALID_CHARS	"01PECN"
+# ifndef VALID_CHARS
+#  define VALID_CHARS "01CPE"
+# endif
+# define MAX_MAP_SIZE	1000
 
-typedef struct s_game t_game;
+typedef struct s_game	t_game;
 
 typedef enum e_error
 {
@@ -30,6 +33,7 @@ typedef enum e_error
 	ERROR_INIT_MLX_WINDOW,
 	ERROR_INVALID_MAP_FILE_NAME,
 	ERROR_READ_MAP,
+	ERROR_MAP_SIZE,
 	ERROR_NO_RECTANGLE,
 	ERROR_INVALID_CHARS,
 	ERROR_MAP_NOT_ROUNDED_WALLS,
@@ -39,6 +43,8 @@ typedef enum e_error
 	ERROR_MALLOC_NPCS,
 	ERROR_MALLOC_COLLECTS,
 	ERROR_LOADING_SPRITES,
+	ERROR_SETTING_N_STEPS_COLLECTS,
+	ERROR_SETTING_S_STEPS_COLLECTS,
 	ERROR
 }	t_error;
 
